@@ -1,0 +1,59 @@
+.form {
+    width: 500px;
+    margin: 0 auto;
+    background-color: #272727;
+    color: #fff;
+
+  
+  label,
+  input {
+    display: block;
+    width: 100%;
+  }
+
+  input {
+    background-color: #e8f0fe;
+    border-radius: 5px;
+  }
+  
+  input,
+  button {
+    display: block;
+    padding: 0.8rem;
+    outline: none;
+    font-size: inherit;
+    font-family: inherit;
+    margin-top: 1rem;
+    margin-bottom: 1.1rem;
+    border: 1px solid lightgrey;
+  }
+  
+  .error-container {
+    border: 1px dashed lightgray;
+    padding: 1rem;
+    width: 100%;
+  }
+  ul {
+    color: #fff;
+    list-style-position: inside;
+    color: lightcoral;
+  }
+  button {
+    text-transform: uppercase;
+    background-color: darkslateblue;
+    border: none;
+    border-radius: 3px;
+    color: white;
+    font-weight: bold;
+  }
+
+  .btn-title {
+    margin-top: 10px;
+    text-align: center;
+    span {
+      color: #fcd535;
+      cursor: pointer;
+    }
+  }
+
+}

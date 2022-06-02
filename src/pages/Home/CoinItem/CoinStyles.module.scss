@@ -1,0 +1,50 @@
+.container {
+    border: none;
+    align-items: center;
+    height: 50px;
+    td {
+        color:  rgb(180, 180, 180);
+        text-align: center;
+        align-items: center;
+        border-collapse: unset;
+        border-bottom: 1px solid rgb(58, 58, 58);
+    }
+
+    .crypto-name {
+        align-items: center;
+        justify-content: flex-start;
+        display: flex;
+        height: 50px;
+        img {
+            width: 30px;
+            height: 30px;
+        }
+        span {
+            font-weight: 700; 
+            margin-left: 10px;
+            color: #fff;
+        }
+    }
+
+    .symbol {
+        font-weight: 700;
+        font-size: 1.4rem;
+    }
+    
+    .price {    
+
+    }
+    
+    .pricechangeRed {
+        color: rgb(238, 88, 88);
+    }
+    
+    .pricechangeGreen {
+        color: rgb(69, 212, 69);
+    }
+    
+
+}
+
+
+
