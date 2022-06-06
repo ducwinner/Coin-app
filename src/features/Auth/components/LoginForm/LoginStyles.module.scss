@@ -37,18 +37,26 @@
     color: #fff;
     list-style-position: inside;
     color: lightcoral;
+    font-size: 1.4rem;
   }
   button {
+    margin: 20px 0 10px 0;
     text-transform: uppercase;
-    background-color: darkslateblue;
+    background-color: rgb(99, 91, 148);
     border: none;
     border-radius: 3px;
     color: white;
     font-weight: bold;
+    height: 45px;
+    width: 100%;
+    &:hover {
+    background-color: rgb(58, 46, 136);
+    cursor: pointer;
+    color: #fcd535;
+    }
   }
 
   .btn-title {
-    margin-top: 10px;
     text-align: center;
     span {
       color: #fcd535;

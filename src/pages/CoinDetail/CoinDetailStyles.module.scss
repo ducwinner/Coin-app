@@ -1,0 +1,22 @@
+.cointaner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.coin-info {
+    display: flex;
+    flex-wrap: wrap;
+    width: 1300px;
+    margin: 0 auto;
+    color: #fff;
+    justify-content: space-between;
+}
+
+.coin-price{
+    color: #fff;
+    width: 846px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}

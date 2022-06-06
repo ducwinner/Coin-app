@@ -50,14 +50,14 @@
     padding-right: 200px;
     display: flex;
     font-size: 1.2rem;
-    color: #fcd535;
+    color: var(--primary-color);
     margin-right: 30px;
     justify-content: space-between;
 
     .link-item {
         text-align: center;
         width: 100px;
-        color: #fcd535;
+        color: var(--primary-color);
         text-decoration: none;
         font-weight: 500;
         display: block
@@ -71,7 +71,7 @@
 .header-link-2 {
     display: flex;
     font-size: 1.2rem;
-    color: #fcd535;
+    color: var(--primary-color);
     font-weight: 500;
 }
 

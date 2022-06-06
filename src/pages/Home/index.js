@@ -33,7 +33,7 @@ function Home() {
       setCoin(filterlistCoin);
     };
     fetchCoins();
-  });
+  }, [urlFilter]);
 
   const handleOnchange = (e) => {
     setSearch(e);
@@ -46,6 +46,7 @@ function Home() {
   );
 
   const hanldClick = () => {
+    console.log(isDung);
     isDung = !isDung;
     isDung
       ? setUrlFilter(url_market_cap_desc)
@@ -73,15 +74,15 @@ function Home() {
         <table className={cx("list-coin")}>
           <thead>
             <tr className={cx("header")}>
-              <th className={cx("row row1")}>#</th>
-              <th className={cx("row row2")}>Crypto</th>
-              <th className={cx("row row3")}>Symbol</th>
+              <th className={cx("row", "row1")}>#</th>
+              <th className={cx("row", "row2")}>Crypto</th>
+              <th className={cx("row", "row3")}>Symbol</th>
               <th onClick={hanldClick} className={cx("row")}>
                 Price
               </th>
-              <th className={cx("row row4")}>Market cap</th>
-              <th className={cx("row row5")}>Volume</th>
-              <th className={cx("row row6")}>Change 24h</th>
+              <th className={cx("row", "row4")}>Market cap</th>
+              <th className={cx("row", "row5")}>Volume</th>
+              <th className={cx("row", "row6")}>Change 24h</th>
             </tr>
           </thead>
           <tbody>

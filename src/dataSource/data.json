@@ -1,0 +1,30 @@
+{
+    "users": [
+        {
+            "id": 1,
+            "name": "A",
+            "email": "a@gmail.com",
+            "password": "hash-code",
+            "created_at": 16000000,
+            "updated_at": 17000000
+        },
+        {
+            "id": 2,
+            "name": "A",
+            "email": "a@gmail.com",
+            "password": "hash-code",
+            "created_at": 16000000,
+            "updated_at": 17000000
+        }
+    ],
+    "news": [
+        {
+            "id": 1,
+            "title": "title 1",
+            "image": "url",
+            "content": "content 1",
+            "created_at": 16000000,
+            "updated_at": 17000000
+        }
+    ]
+}

@@ -76,7 +76,7 @@ function Header() {
           <NavLink to="/new" className={cx("link-item")}>
             NEWS
           </NavLink>
-          <NavLink to="/" className={cx("link-item")}>
+          <NavLink to="/coin" className={cx("link-item")}>
             COIN
           </NavLink>
           <NavLink to="/" className={cx("link-item")}>

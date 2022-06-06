@@ -1,12 +1,14 @@
 import axiosClient from "./AxiosApi";
-const ProductsApi = {
-  getAll(url, params) {
+
+const RegisterApi = {
+  getAll(params) {
+    const url = "/";
     return axiosClient.get(url, { params });
   },
 
-  get(params) {
-    const url = "";
-    return axiosClient.get(url, { params });
+  get(id) {
+    const url = `/${id}`;
+    return axiosClient.get(url);
   },
 
   add(data) {
@@ -25,4 +27,4 @@ const ProductsApi = {
   },
 };
 
-export default ProductsApi;
+export default RegisterApi;

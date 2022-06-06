@@ -2,6 +2,7 @@ import { useForm } from "react-hook-form";
 import styles from "../LoginForm/LoginStyles.module.scss";
 import className from "classnames/bind";
 import { useRef, useState } from "react";
+import RegisterApi from "../../../../api/RegisterApi";
 
 const cx = className.bind(styles);
 
@@ -17,7 +18,9 @@ function RegisterForm({ toggleAuthen }) {
     getValues,
   } = useForm();
   const onSubmit = (data) => {
-    console.log(data);
+    console.log(RegisterApi.get());
+    console.log(JSON.stringify(data));
+    RegisterApi.add(JSON.stringify(data));
   };
 
   return (

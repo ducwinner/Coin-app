@@ -1,6 +1,7 @@
 import { useForm } from "react-hook-form";
 import styles from "./LoginStyles.module.scss";
 import className from "classnames/bind";
+import data from "../../../../dataSource/data.json";
 
 const cx = className.bind(styles);
 
@@ -10,12 +11,14 @@ function LoginForm({ toggleAuthen }) {
     handleSubmit,
     formState: { errors },
   } = useForm();
-  const onSubmit = (data) => {};
+  const onSubmitLogin = (data) => {
+    console.log(data);
+  };
 
   return (
-    <form className={cx("form")} onSubmit={handleSubmit(onSubmit)}>
+    <form className={cx("form")} onSubmit={handleSubmit(onSubmitLogin)}>
       <h1>Login</h1>
-      <labe htmlFor="name">Password</labe>
+      <label htmlFor="name">Password</label>
       <input
         type="email"
         name="email"
