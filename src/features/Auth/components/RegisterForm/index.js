@@ -3,6 +3,7 @@ import styles from "../LoginForm/LoginStyles.module.scss";
 import className from "classnames/bind";
 import { useRef, useState } from "react";
 import RegisterApi from "../../../../api/RegisterApi";
+import userApi from "../../../../api/RegisterApi";
 
 const cx = className.bind(styles);
 
@@ -18,9 +19,10 @@ function RegisterForm({ toggleAuthen }) {
     getValues,
   } = useForm();
   const onSubmit = (data) => {
-    console.log(RegisterApi.get());
-    console.log(JSON.stringify(data));
-    RegisterApi.add(JSON.stringify(data));
+    const keysUser = Object.keys(data);
+    keysUser.map((e) => {
+      localStorage.setItem(e, data[e]);
+    });
   };
 
   return (
@@ -46,7 +48,7 @@ function RegisterForm({ toggleAuthen }) {
             /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
         })}
       />
-      <labe htmlFor="name">Password</labe>
+      <label htmlFor="name">Password</label>
       <input
         ref={passwordRef}
         type="password"
@@ -58,7 +60,7 @@ function RegisterForm({ toggleAuthen }) {
           minLength: 6,
         })}
       />
-      <labe htmlFor="name">Password</labe>
+      <label htmlFor="name">Password</label>
       <input
         ref={passwordRef2}
         type="password"

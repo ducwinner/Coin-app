@@ -1,0 +1,110 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 100px;
+}
+
+.header-footer {
+    width: 100%;
+    background-color: #3f3f3f;
+    display: flex;
+    justify-content: center;
+    padding: 15px 0;
+    margin: 50px;
+    .inner {
+        color: rgb(199, 49, 49);
+        width: 1300px;
+        a {
+            color: rgb(199, 71, 71);
+        }
+        span {
+            color: rgb(240, 238, 238);
+            font-size: 1.3rem;
+        }
+    }
+}
+
+.btn-footer {
+    width: 1300px;
+    display: flex;
+    justify-content: center;
+}
+
+
+.footer-left {
+    width: 282px;
+    .footer-left-top {
+        width: 100%;
+        color: var(--text-blur);
+        img {
+            width: 277px;
+        }
+    }
+}
+
+.footer-left-bottom {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 30px;
+    width: 100%;
+    color: var(--text-blur);
+    a {
+        margin-right: 10px ;
+        text-decoration: none;
+        position: relative;
+        color: var(--text-blur);
+        &:after {
+            content: "";
+            position: absolute;
+            display: block;
+            height: 12px;
+            border: 1px solid  var(--text-blur);
+            right: -6px;
+
+            top: 3px;
+        }
+    }
+}
+
+.footer-mid {
+    margin-left: 100px;
+    color: var(--text-blur);
+    display: flex;
+    justify-content: space-between;
+    .footer-mid-item {
+        display: flex;
+        flex-direction: column;
+        margin: 0 20px;
+        .item {
+            margin: 10px 0;
+            &:first-child {
+                font-weight: 600;
+                color: rgb(231, 231, 231);
+            }
+        }
+
+    }
+}
+
+.footer-right {
+    width: 282px;
+    display: flex;
+    flex-direction: column;
+
+    .header-rigt {
+        margin: 10px;
+        font-weight: 600;
+        color: rgb(231, 231, 231);
+    }
+
+
+    .socials {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        img{
+            width: 130px;
+        }
+    }
+}

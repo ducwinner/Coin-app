@@ -20,6 +20,7 @@ function Coin({
   maxSupply,
   totalSupply,
 }) {
+  console.log(maxSupply);
   return (
     <div className={cx("container")}>
       <div className={cx("rank-coin")}>Rank#{rank}</div>
@@ -57,15 +58,15 @@ function Coin({
         <div className={cx("table")}>
           <LineInput
             title={"Circulating Supply"}
-            input={CirculatingSupply?.toLocaleString()}
-          />
-          <LineInput
-            title={"Total Supply"}
-            input={maxSupply?.toLocaleString()}
+            input={CirculatingSupply?.toLocaleString() || "?"}
           />
           <LineInput
             title={"Max Supply"}
-            input={totalSupply?.toLocaleString()}
+            input={maxSupply?.toLocaleString() || "?"}
+          />
+          <LineInput
+            title={"Total Supply"}
+            input={totalSupply?.toLocaleString() || "?"}
           />
         </div>
       </div>

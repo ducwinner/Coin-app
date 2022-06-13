@@ -1,12 +1,14 @@
 import Header from "../components/Header";
+import Footer from "../components/Footer";
 
 function DefaultLayout({ children }) {
   return (
-    <div>
+    <div style={{}}>
       <Header />
-      <div className="container" style={{ marginTop: 50 }}>
+      <div className="container" style={{ margin: 50 }}>
         {children}
       </div>
+      <Footer />
     </div>
   );
 }

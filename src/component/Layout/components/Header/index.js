@@ -5,9 +5,15 @@ import Button from "@mui/material/Button";
 import Dialog from "@mui/material/Dialog";
 import DialogActions from "@mui/material/DialogActions";
 import DialogContent from "@mui/material/DialogContent";
-import DialogContentText from "@mui/material/DialogContentText";
 import { useState } from "react";
 import Login from "../../../../features/Auth/components/Login";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faArrowRightFromBracket,
+  faExclamation,
+  faIdCardAlt,
+} from "@fortawesome/free-solid-svg-icons";
+import Tippy from "@tippyjs/react/headless";
 
 const cx = classNames.bind(styles);
 
@@ -22,33 +28,29 @@ function Header() {
     setOpen(false);
   };
 
-  const handleTodoFormSubmit = (values) => {
-    console.log("Form submit: ", values);
-  };
-
   return (
     <header className={cx("wrapper")}>
       <div className={cx("inner-1")}>
         <div className={cx("item-name")}>
-          Tiền ảo: &nbsp;
+          Coins: &nbsp;
           <span>1342</span>
         </div>
 
         <div className={cx("item-name")}>
-          Sàn giao dịch: &nbsp;
+          Exchanges: &nbsp;
           <span>623</span>
         </div>
 
         <div className={cx("item-name")}>
-          Giá trị vốn hoá thị trường: &nbsp;
+          Market cap: &nbsp;
           <span>1.226.906.803.860 US $</span>
         </div>
         <div className={cx("item-name")}>
-          Lưu lượng 24H: &nbsp;
+          24H vol: &nbsp;
           <span>533.543.541.442 USD</span>
         </div>
         <div className={cx("item-name")}>
-          Ưu thế: &nbsp;
+          Dominance: &nbsp;
           <span>BTC 43%</span>
         </div>
         <div className={cx("item-name")}>
@@ -65,36 +67,55 @@ function Header() {
         </Link>
         <div className={cx("header-link-1")}>
           <NavLink to="/" className={cx("link-item")}>
-            TIỀN MÃ HOÁ
-          </NavLink>
-          <NavLink to="/" className={cx("link-item")}>
-            SÀN GIAO DỊCH
+            Cryptocurrencies
           </NavLink>
           <NavLink to="/" className={cx("link-item")}>
             NFT
           </NavLink>
           <NavLink to="/new" className={cx("link-item")}>
-            NEWS
+            News
           </NavLink>
-          <NavLink to="/coin" className={cx("link-item")}>
-            COIN
+          <NavLink to="/coin-detail/bitcoin" className={cx("link-item")}>
+            Detail
           </NavLink>
-          <NavLink to="/" className={cx("link-item")}>
-            DETAIL
+          <NavLink to="/coin-detail/bitcoin" className={cx("link-item")}>
+            Learn &amp; Earn
           </NavLink>
         </div>
         <div className={cx("header-link-2")}>
-          <div className={cx("invest")}>DANH MỤC ĐẦU TƯ</div>
-          <div className={cx("login")} onClick={handleClickOpen}>
-            ĐĂNG NHẬP
-          </div>
-          <div className={cx("register")}>ĐĂNG KÝ</div>
+          <Link to="/fortfolio" className={cx("fortfolio")}>
+            <FontAwesomeIcon icon={faIdCardAlt} /> &nbsp; Portfolio
+          </Link>
+          {/* <div className={cx("login")} onClick={handleClickOpen}>
+            Sign In
+          </div> */}
+          <Tippy
+            interactive
+            render={(attrs) => (
+              <div className={cx("user-notify")} tabIndex="-1" {...attrs}>
+                <div>
+                  Price Alert &nbsp; <FontAwesomeIcon icon={faExclamation} />{" "}
+                </div>
+                <div>Infomation</div>
+                <div>
+                  Log out &nbsp;{" "}
+                  <FontAwesomeIcon icon={faArrowRightFromBracket} />{" "}
+                </div>
+              </div>
+            )}
+          >
+            <div className={cx("user-avata")}>
+              <img
+                src="https://image.vtc.vn/upload/2021/12/26/bitcoin-06480965.jpg"
+                alt="avata"
+              />
+            </div>
+          </Tippy>
         </div>
       </div>
 
       <Dialog disableEscapeKeyDown open={open} onClose={handleClose}>
         <DialogContent sx={{ backgroundColor: "#272727" }}>
-          <DialogContentText></DialogContentText>
           <Login />
         </DialogContent>
         <DialogActions sx={{ backgroundColor: "#272727" }}>

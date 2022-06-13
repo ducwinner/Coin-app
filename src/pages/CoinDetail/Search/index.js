@@ -7,9 +7,10 @@ import { useState } from "react";
 const cx = classNames.bind(styles);
 
 function Search({ symbol, price }) {
-  const [total, setTotal] = useState();
+  const [total, setTotal] = useState(0);
 
   const hanldeChange = (e) => {
+    console.log(e.target.value);
     setTotal(e.target.value);
   };
 

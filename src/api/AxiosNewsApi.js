@@ -1,12 +1,17 @@
 import axios from "axios";
-const api_user = "http://localhost:3000/user";
-const axiosUser = axios.create({
-  baseURL: api_user,
-  headers: { "Content-type": "aplication/json" },
+
+const api_news = "https://crypto-pulse.p.rapidapi.com/news";
+const AxiosNews = axios.create({
+  baseURL: api_news,
+  headers: {
+    "X-RapidAPI-Key": "8d19e2eeb4mshbd696b8375d3aaep123bc3jsn8a7183029efb",
+    "X-RapidAPI-Host": "crypto-pulse.p.rapidapi.com",
+  },
 });
 
-axiosUser.interceptors.request.use(
+AxiosNews.interceptors.request.use(
   function (config) {
+    // Do something before request is sent
     return config;
   },
   function (error) {
@@ -16,9 +21,8 @@ axiosUser.interceptors.request.use(
 );
 
 // Add a response interceptor
-axiosUser.interceptors.response.use(
+AxiosNews.interceptors.response.use(
   function (response) {
-    console.log(response.data);
     return response.data;
   },
   function (error) {
@@ -28,4 +32,4 @@ axiosUser.interceptors.response.use(
   }
 );
 
-export default axiosUser;
+export default AxiosNews;

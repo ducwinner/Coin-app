@@ -7,18 +7,28 @@
 .coin-link-header {
     display: flex;
     justify-content: space-between;
-    
-    .header-item {
-        display: flex;
-        align-items: center;
-        background-color: #69a235;
-        color: #fff;
-        font-size: 1.4rem;
-        font-weight: 600;
-        padding: 10px 15px;
-        border-radius: 4px;
-        .header-icon {
-            transform: translateY(-3px);
+}
+
+.link-header-box {
+    background-color: rgb(18 18 18);
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 400px;
+    padding: 15px 20px;
+    a {
+        color: #69a235;
+        margin-bottom: 10px;
+        text-decoration: none;
+        .box-img {
+            width: 20px;
+            height: 20px;
+            transform: translateY(5px);
+        }
+        
+        p {
+            color: var(--text-blur);
+            font-size: 1.2rem;
+            margin: 10px 0;
         }
     }
 }

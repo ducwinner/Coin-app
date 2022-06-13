@@ -1,0 +1,197 @@
+.container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+}
+.inner {
+    display: flex;
+    flex-direction: column;
+    width: 1300px;
+    align-items: center;
+}
+
+.header-porftfolio {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+// Header Fortfoli
+
+.header-left {
+    display: flex;
+    align-items: center;
+    color: #fff;
+    font-weight: 700;
+    font-size: 2.4rem;
+    h3 {
+        font-size: 1.2rem;
+        padding: 5px 10px;
+        border-radius: 3px;
+        color:  #69a235;
+        background-color: rgb(41, 41, 41);
+    }
+}
+
+.header-right {
+    display: flex;
+    align-items: center;
+    .icon {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        padding: 15px 16px;
+        margin: 0 10px;
+        color: #fff;
+        font-size: 2.4rem;
+        &:hover {
+            cursor: pointer;
+            background-color: rgb(41, 41, 41);
+            color: #69a235;
+        }
+    }
+}
+
+.duc-daialog div:first-child {
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+    width: 600px;
+}
+
+.title-search {
+    font-size: 2rem;
+    font-weight: 600;
+    color: var(--primary-color);
+}
+
+.input-search {
+    border-radius: 8px;
+    width: 100%;
+    border: none;
+    outline: none;
+    font-size: 1.8rem;
+    height: 40px;
+    color: #69a235;
+    padding-left: 20px;
+}
+
+.list-coin-search {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    padding: 0;
+    border-radius: 8px;
+    border: 1px solid rgb(133, 133, 133);
+    overflow: hidden;
+
+    .coin-item:not(li:last-child) {
+        border-bottom: 1px solid rgb(133, 133, 133);
+    }
+
+    .coin-item {
+        &:hover {
+            cursor: pointer;
+            background-color: rgb(36, 36, 36);;
+        }
+        background-color: rgb(58, 58, 58);
+        width: 100%;
+        list-style: none;
+        color: #fff;
+        font-size: 1.4rem;
+        display: flex;
+        align-items: center;
+        img { 
+            margin: 10px 15px;
+            width: 24px;
+            height: 24px;
+        }
+    }
+}
+
+// Body Fortfolio
+
+.body-porftfolio  {
+    display: flex;
+    justify-content: flex-start;
+    .body-item {
+        margin-right: 15px;
+        color: var(--text-blur);
+        padding: 15px 12px;
+        display: inline-flex;
+        flex-direction: column;
+        align-items: center;
+        background-color: rgb(31 31 31);
+        border-radius: 5px;
+        .price {
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+        }
+
+        .text {
+            font-size: 1.4rem;
+        }
+    }
+}
+
+// List Coin Portfolio
+
+.list-coin-portfolio {
+    position:initial;
+    margin: 50px 80px;
+    width: 100%;
+    border-collapse: collapse ;
+    .header-list-coin {
+        height: 50px;
+        background-color: rgb(31, 31, 31);
+        color: #fff;
+        font-weight: 700;
+        th {
+            margin: 0;
+            padding: 0;
+            border-bottom: 1px solid rgb(58, 58, 58);
+        }
+
+        .row {
+            cursor: pointer;
+        }
+
+        .row1 {
+            color: red;
+            width: 64px;
+        }
+        .row2 {
+            width: 240px;
+        }
+        .row3 {
+            width: 60px;
+        }
+        .row4 {
+            width: 180px;
+        }
+        .row5 {
+            width: 70px;
+        }
+        .row6 {
+            width: 70px;
+        }
+        .row7 {
+            width: 70px;
+        }        
+        .row8 {
+            width: 250px;
+        }        
+        .row9 {
+            width: 130px;
+        }        
+        .row10 {
+            width: 70px;
+        }
+    }
+}

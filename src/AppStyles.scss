@@ -1,0 +1,15 @@
+#loading{
+    position: absolute;
+    justify-content: center;
+    align-items: flex-start;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    background: #121212;
+    z-index: 100000;
+}
+#root{
+    position: relative;
+}
