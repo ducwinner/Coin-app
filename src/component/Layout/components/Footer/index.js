@@ -34,7 +34,10 @@ function Footer() {
       <div className={cx("btn-footer")}>
         <div className={cx("footer-left")}>
           <div className={cx("footer-left-top")}>
-            <img src="https://static.coingecko.com/s/coingecko-logo-white-99d39c22910707ffddb7aa7090753ca2089eb1813440286da14927a723b2d2d6.png" />
+            <img
+              src="https://static.coingecko.com/s/coingecko-logo-white-99d39c22910707ffddb7aa7090753ca2089eb1813440286da14927a723b2d2d6.png"
+              alt="logo"
+            />
             <p>
               CoinGecko provides a fundamental analysis of the crypto market. In
               addition to tracking price, volume and market capitalisation,
@@ -86,10 +89,16 @@ function Footer() {
           <div className={cx("header-rigt")}>Download our app now</div>
           <div className={cx("socials")}>
             <a href="/">
-              <img src="https://static.coingecko.com/s/coingecko_logos/google_play_store-836027fba5bce52aa7f436d7edf8fadf2707c7607842f994e3af58748ef141a0.svg" />
+              <img
+                src="https://static.coingecko.com/s/coingecko_logos/google_play_store-836027fba5bce52aa7f436d7edf8fadf2707c7607842f994e3af58748ef141a0.svg"
+                alt="logo"
+              />
             </a>
             <a href="/">
-              <img src="https://static.coingecko.com/s/coingecko_logos/apple_app_store-2b96ff447647976493b4622a5af700da687ffb28b64e3bd8c9c1bbd7ac20d028.svg" />
+              <img
+                src="https://static.coingecko.com/s/coingecko_logos/apple_app_store-2b96ff447647976493b4622a5af700da687ffb28b64e3bd8c9c1bbd7ac20d028.svg"
+                alt="logo"
+              />
             </a>
           </div>
         </div>
