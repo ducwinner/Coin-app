@@ -9,11 +9,11 @@ import { useState } from "react";
 import Login from "../../../../features/Auth/components/Login";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
-  faArrowRightFromBracket,
-  faExclamation,
+  // faArrowRightFromBracket,
+  // faExclamation,
   faIdCardAlt,
 } from "@fortawesome/free-solid-svg-icons";
-import Tippy from "@tippyjs/react/headless";
+// import Tippy from "@tippyjs/react/headless";
 
 const cx = classNames.bind(styles);
 

@@ -1,7 +1,7 @@
 import classnames from "classnames/bind";
 import styles from "./CoinLinkStyles.module.scss";
-import { faSortDown } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+// import { faSortDown } from "@fortawesome/free-solid-svg-icons";
+// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import TagCoin from "../../../component/TagCoin";
 import Tippy from "@tippyjs/react/headless"; // different import path!
 import "tippy.js/dist/tippy.css"; // optional
