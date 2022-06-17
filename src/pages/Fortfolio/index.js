@@ -48,8 +48,6 @@ function Fortfolio() {
     }
   }
 
-  console.log(listCoinRender);
-
   const hanldeSearch = (e) => {
     setSearchCoin(e.target.value);
   };

@@ -3,6 +3,7 @@
  border-bottom: 1px solid rgb(65, 65, 65);
  display: flex;
  flex-direction: column;
+ justify-content: center;
  align-items: center;
  margin: 0;
  padding: 0;
@@ -11,7 +12,7 @@
 .inner-1 {
     border-bottom: 1px solid rgb(65, 65, 65);
     margin: 15px 0 0 0 ;
-    width: 1300px;
+    max-width: 1300px;
     display: flex;
     justify-content: space-between;
     height: 30px;
@@ -35,7 +36,7 @@
 
 
 .inner-2 {
-    width: 1300px;
+    max-width: 1300px;
     margin: 15px 0;
     display: flex;
     justify-content: space-between;
@@ -48,7 +49,6 @@
 
 .header-link-1 {
     flex: 1;
-    padding-right: 150px;
     display: flex;
     font-size: 1.6rem;
     color: var(--primary-color);
@@ -56,6 +56,7 @@
     justify-content: space-between;
 
     .link-item {
+        margin: 20px;
         text-align: center;
         color: var(--primary-color);
         text-decoration: none;

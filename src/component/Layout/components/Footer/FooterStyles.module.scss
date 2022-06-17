@@ -14,7 +14,7 @@
     margin: 50px;
     .inner {
         color: rgb(199, 49, 49);
-        width: 1300px;
+        max-width: 1300px;
         a {
             color: rgb(199, 71, 71);
         }
@@ -26,7 +26,7 @@
 }
 
 .btn-footer {
-    width: 1300px;
+    max-width: 1300px;
     display: flex;
     justify-content: center;
 }

@@ -19,7 +19,7 @@ function Home() {
   const [coins, setCoin] = useState([]);
   const [perPage, setPerPage] = useState(20);
   const [urlFilter, setUrlFilter] = useState(url_market_cap_desc);
-  const nameRef = useRef();
+  const filterSearchRef = useRef();
   const apt_list_coin =
     "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&";
   const handleLoadingIn = () => {
@@ -57,7 +57,7 @@ function Home() {
   };
 
   const optionFilterCoin = coins.filter((coin) =>
-    nameRef.current.value === "name"
+    filterSearchRef.current.value === "name"
       ? coin.name.toUpperCase().includes(search.toUpperCase())
       : coin.symbol.toUpperCase().includes(search.toUpperCase())
   );
@@ -69,7 +69,7 @@ function Home() {
       : setUrlFilter(url_market_cap_asc);
   };
 
-  const handleLoadCoin = async () => {
+  const handleLoadCoin = () => {
     setLoadingCoin(true);
     setPerPage((prev) => prev + 20);
   };
@@ -91,7 +91,7 @@ function Home() {
         <div className={cx("search-top")}>
           <div className={cx("search-text")}>Search currency</div>
           <form>
-            <select ref={nameRef} className={cx("filter")}>
+            <select ref={filterSearchRef} className={cx("filter")}>
               <option value="name">Filter Name</option>
               <option value="symbol">Filter Symbol</option>
             </select>

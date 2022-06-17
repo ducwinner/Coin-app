@@ -1,7 +1,6 @@
 import { useForm } from "react-hook-form";
 import styles from "./LoginStyles.module.scss";
 import className from "classnames/bind";
-import data from "../../../../dataSource/data.json";
 
 const cx = className.bind(styles);
 

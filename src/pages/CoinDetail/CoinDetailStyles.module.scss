@@ -7,7 +7,7 @@
 .coin-info {
     display: flex;
     flex-wrap: wrap;
-    width: 1300px;
+    max-width: 1300px;
     margin: 0 auto;
     color: #fff;
     justify-content: space-between;
@@ -15,7 +15,7 @@
 
 .coin-price{
     color: #fff;
-    width: 846px;
+    max-width: 846px;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
