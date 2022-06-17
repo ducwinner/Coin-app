@@ -86,10 +86,10 @@ function Header() {
           <Link to="/fortfolio" className={cx("fortfolio")}>
             <FontAwesomeIcon icon={faIdCardAlt} /> &nbsp; Portfolio
           </Link>
-          {/* <div className={cx("login")} onClick={handleClickOpen}>
+          <div className={cx("login")} onClick={handleClickOpen}>
             Sign In
-          </div> */}
-          <Tippy
+          </div>
+          {/* <Tippy
             interactive
             render={(attrs) => (
               <div className={cx("user-notify")} tabIndex="-1" {...attrs}>
@@ -110,7 +110,7 @@ function Header() {
                 alt="avata"
               />
             </div>
-          </Tippy>
+          </Tippy> */}
         </div>
       </div>
 
