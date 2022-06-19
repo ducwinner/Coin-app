@@ -61,7 +61,7 @@ function Header() {
       <div className={cx("inner-2")}>
         <Link to="/" className={cx("logo")}>
           <img
-            src="https://static.coingecko.com/s/coingecko-logo-white-99d39c22910707ffddb7aa7090753ca2089eb1813440286da14927a723b2d2d6.png"
+            src="https://i.ex-cdn.com/nhadautu.vn/files/ctv2/2018/04/11/bitcoin-1516.jpg"
             alt="logo"
           />
         </Link>
@@ -84,7 +84,8 @@ function Header() {
         </div>
         <div className={cx("header-link-2")}>
           <Link to="/fortfolio" className={cx("fortfolio")}>
-            <FontAwesomeIcon icon={faIdCardAlt} /> &nbsp; Portfolio
+            <FontAwesomeIcon icon={faIdCardAlt} color="#fcd535" /> &nbsp;
+            Portfolio
           </Link>
           <div className={cx("login")} onClick={handleClickOpen}>
             Sign In

@@ -11,11 +11,11 @@
     }
 
     .pricechangeRed {
-        color: rgb(238, 88, 88);
+        color: var(--price-down)
     }
 
     .pricechangeGreen {
-        color: rgb(69, 212, 69);
+        color: var(--price-up)
     }
        
 }

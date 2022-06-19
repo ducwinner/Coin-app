@@ -5,7 +5,7 @@ function DefaultLayout({ children }) {
   return (
     <div style={{}}>
       <Header />
-      <div className="container" style={{ margin: 50 }}>
+      <div className="container" style={{ marginTop: "50px" }}>
         {children}
       </div>
       <Footer />

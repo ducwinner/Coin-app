@@ -19,10 +19,10 @@
             height: 35px;
         }
         .change-up {
-            color: rgb(32, 194, 0);
+            color: var(--price-up)
         }
         .change-down {
-            color: rgb(158, 0, 0);
+            color: var(--price-down)
         }
     }
 

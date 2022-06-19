@@ -8,6 +8,8 @@
     #ac32e4 0%,
     #7918f2 48%,
     #4801ff 100%);
+    --price-up: rgb(25, 235, 25);
+    --price-down: rgb(255, 28, 28);
     --backgroung-color1:#2a2a2a;
     --text-blur: rgb(160, 160, 160);
 }
@@ -26,6 +28,14 @@ body {
     margin: 0;
     padding: 0;
     background-color: #121212;
+}
+
+.changeRed {
+    color: rgb(253, 48, 48);
+}
+
+.changeGreen {
+    color: rgb(26, 252, 26);
 }
 
 @keyframes loadingOut {

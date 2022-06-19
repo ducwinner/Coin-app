@@ -23,8 +23,6 @@ function CoinDetail() {
     };
     fetchCoins();
   }, [key]);
-  console.log(coin);
-  console.log(coin.max_supply);
   return (
     <div className={cx("container")}>
       <div className={cx("coin-info")}>

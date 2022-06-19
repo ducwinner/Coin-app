@@ -1,6 +1,7 @@
 import {
   faAngleDown,
   faEye,
+  faFaceFrown,
   faHeart,
   faPercent,
 } from "@fortawesome/free-solid-svg-icons";
@@ -9,11 +10,13 @@ import Dialog from "@mui/material/Dialog";
 import DialogActions from "@mui/material/DialogActions";
 import DialogContent from "@mui/material/DialogContent";
 import classNames from "classnames/bind";
+import { useEffect, useState } from "react";
+
 import Button2 from "../../component/Button2";
 import styles from "./FortfolioStyles.module.scss";
 import ListCoinFortfolio from "./ListCoinFortfolio";
-import { useEffect, useState } from "react";
 import ProductsApi from "../../api/ProductsApi";
+import { dataUser } from "../../dataSource/Fortfolio";
 
 const cx = classNames.bind(styles);
 
@@ -21,6 +24,14 @@ function Fortfolio() {
   const [openSearch, setOpenSearch] = useState(false);
   const [searchCoin, setSearchCoin] = useState("");
   const [coins, setCoins] = useState([]);
+  const [dataCoin, setDataCoin] = useState(dataUser);
+  const [none, setNone] = useState(false);
+  const [coinsFortfolio, setCoinFortfolio] = useState(() => ({
+    list: [],
+    total: 0,
+    change24h: 0,
+  }));
+
   useEffect(() => {
     const fetchCoin = async () => {
       const listCoin = await ProductsApi.getAll("/");
@@ -28,12 +39,41 @@ function Fortfolio() {
     };
     fetchCoin();
   }, []);
+  useEffect(() => {
+    // Tạo mảng chứa tên coin
+    var arrNameCoin = dataCoin.reduce(function (total, item) {
+      return total.concat(item.idcoin);
+    }, []);
+    // get data Coins của fortfolio
+    const listFilter = coins.filter((item) => arrNameCoin.includes(item.id));
+    // tính Tổng số dư
+    var totalBalance = listFilter.reduce((total, item) => {
+      var quantity = dataCoin.filter((e) => {
+        return e.idcoin === item.id;
+      })[0].quantity;
+      return (total += item.current_price * quantity);
+    }, 0);
 
-  const handleOpen = () => {
+    // tính tổng Vốn thay đổi 24h
+    var totalChange24h = listFilter.reduce((total, item) => {
+      var quantity = dataCoin.filter((e) => {
+        return e.idcoin === item.id;
+      })[0].quantity;
+      return (total += item.price_change_24h * quantity);
+    }, 0);
+
+    setCoinFortfolio({
+      list: listFilter,
+      total: totalBalance,
+      change24h: totalChange24h,
+    });
+  }, [coins, dataCoin]);
+
+  const handleOpenSearch = () => {
     setOpenSearch(true);
   };
 
-  const handleClose = () => {
+  const handleCloseSearch = () => {
     setOpenSearch(false);
   };
 
@@ -47,11 +87,69 @@ function Fortfolio() {
       listCoinRender.push(listCoinFilter[i]);
     }
   }
-
-  console.log(listCoinRender);
-
   const hanldeSearch = (e) => {
     setSearchCoin(e.target.value);
+  };
+
+  const handleAddCoin = (id, current_price) => {
+    let itemMatch = dataCoin.filter((item) => {
+      return item.idcoin === id;
+    }).length;
+    if (itemMatch === 0) {
+      setDataCoin((prev) => {
+        return [
+          ...prev,
+          {
+            idcoin: id,
+            quantity: 0,
+            priceInput: current_price,
+          },
+        ];
+      });
+      alert("thêm thành công rồi nhé");
+    } else {
+      alert("Đã có rồi bạn eeiiiiiiiiiii!");
+    }
+  };
+
+  const handleQuantity = (quantity, price, id) => {
+    const newDatacoin = [];
+    dataCoin.forEach((e, index) => {
+      if (e.idcoin === id) {
+        e.quantity = quantity;
+        if (price !== "") {
+          e.priceInput = price;
+        }
+        newDatacoin[index] = e;
+      } else {
+        newDatacoin[index] = e;
+      }
+    });
+    setDataCoin(newDatacoin);
+  };
+
+  const totalPriceInput = dataCoin.reduce((total, item) => {
+    return (total += item.priceInput * item.quantity);
+  }, 0);
+
+  const totalPNL = coinsFortfolio.total - totalPriceInput;
+
+  const handleNone = () => {
+    none ? setNone(false) : setNone(true);
+  };
+
+  const handleDelete = (id) => {
+    console.log(id);
+    const newDatacoin = [...dataCoin];
+    console.log(newDatacoin);
+    dataCoin.forEach((item, index) => {
+      if (item.idcoin === id) {
+        newDatacoin.splice(index, 1);
+      }
+    });
+
+    console.log(newDatacoin);
+    setDataCoin(newDatacoin);
   };
   return (
     <div className={cx("container")}>
@@ -64,7 +162,7 @@ function Fortfolio() {
             <h3>main</h3>
           </div>
           <div className={cx("header-right")}>
-            <div className={cx("icon")}>
+            <div className={cx("icon")} onClick={handleNone}>
               <FontAwesomeIcon icon={faEye} size="1x" />
             </div>{" "}
             <div className={cx("icon")}>
@@ -73,7 +171,7 @@ function Fortfolio() {
             <Dialog
               disableEscapeKeyDown
               open={openSearch}
-              onClose={handleClose}
+              onClose={handleCloseSearch}
               className={cx("duc-daialog")}
             >
               <DialogContent sx={{ backgroundColor: "#272727" }}>
@@ -100,7 +198,13 @@ function Fortfolio() {
                 <ul className={cx("list-coin-search")}>
                   {listCoinRender.map((coin) => {
                     return (
-                      <li key={coin.id} className={cx("coin-item")}>
+                      <li
+                        key={coin.id}
+                        className={cx("coin-item")}
+                        onClick={() =>
+                          handleAddCoin(coin.id, coin.current_price)
+                        }
+                      >
                         <img src={coin.image} alt="img"></img>
                         &nbsp;&nbsp;&nbsp;
                         <div>
@@ -112,7 +216,7 @@ function Fortfolio() {
                 </ul>
               </DialogActions>
             </Dialog>
-            <div onClick={handleOpen}>
+            <div onClick={handleOpenSearch}>
               <Button2 text="Add New Coin" />
             </div>
           </div>
@@ -120,16 +224,43 @@ function Fortfolio() {
 
         <div className={cx("body-porftfolio")}>
           <div className={cx("body-item")}>
-            <div className={cx("price")}>$141</div>
+            <div className={cx("price")}>
+              {none ? (
+                <span>
+                  ... <FontAwesomeIcon icon={faFaceFrown} />
+                  ...
+                </span>
+              ) : (
+                "$" + coinsFortfolio.total?.toFixed(0)
+              )}
+            </div>
             <div className={cx("text")}>Total Balance</div>
           </div>
           <div className={cx("body-item")}>
-            <div className={cx("price")}>$141</div>
-            <div className={cx("text")}>24h Portfolio Change (51%)</div>
+            <div className={cx("price")}>
+              {none ? (
+                <span>
+                  ... <FontAwesomeIcon icon={faFaceFrown} />
+                  ...
+                </span>
+              ) : (
+                "$" + coinsFortfolio.change24h?.toFixed(0)
+              )}
+            </div>
+            <div className={cx("text")}>24h Portfolio Change</div>
           </div>
           <div className={cx("body-item")}>
-            <div className={cx("price")}>$141</div>
-            <div className={cx("text")}>Total Profit Loss (-)</div>
+            <div className={cx("price")}>
+              {none ? (
+                <span>
+                  ... <FontAwesomeIcon icon={faFaceFrown} />
+                  ...
+                </span>
+              ) : (
+                "$" + totalPNL.toFixed(0)
+              )}
+            </div>
+            <div className={cx("text")}>Total PNL (-)</div>
           </div>
         </div>
 
@@ -148,7 +279,28 @@ function Fortfolio() {
               <th className={cx("row", "row10")}>PNL</th>
             </tr>
           </thead>
-          <ListCoinFortfolio />
+          {coinsFortfolio.list.map((item, index) => {
+            return (
+              <ListCoinFortfolio
+                none={none}
+                key={item.id}
+                id={item.id}
+                rank={index}
+                image={item.image}
+                name={item.name}
+                symbol={item.symbol}
+                price={item.current_price}
+                mkc={item.market_cap}
+                priceChange1h={item.price_change_percentage_1h_in_currency}
+                priceChange24h={item.price_change_percentage_24h_in_currency}
+                priceChange7d={item.price_change_percentage_7d_in_currency}
+                coin={dataCoin?.filter((e) => e.idcoin === item.id)[0]}
+                totalBalance={coinsFortfolio.total}
+                fQuantity={handleQuantity}
+                fDelete={handleDelete}
+              />
+            );
+          })}
         </table>
       </div>
     </div>

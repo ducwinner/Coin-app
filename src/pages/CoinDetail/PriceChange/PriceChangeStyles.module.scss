@@ -26,11 +26,11 @@
     }
 
     .change-red {
-        color: rgb(253, 25, 25)
+        color: var(--price-down);
     }
 
     .change-green {
-        color: rgb(6, 255, 6);
+        color: var(--price-up);
     }
 }
 

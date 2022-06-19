@@ -113,9 +113,9 @@ function Home() {
               <th onClick={hanldClick} className={cx("row", "row4")}>
                 Market cap &nbsp;
                 {isDung ? (
-                  <FontAwesomeIcon icon={faDownLong} />
+                  <FontAwesomeIcon icon={faDownLong} color="#fcd535" />
                 ) : (
-                  <FontAwesomeIcon icon={faUpLong} />
+                  <FontAwesomeIcon icon={faUpLong} color="#fcd535" />
                 )}
               </th>
               <th className={cx("row", "row5")}>Volume</th>

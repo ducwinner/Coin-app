@@ -18,7 +18,7 @@ function LoginForm({ toggleAuthen }) {
   return (
     <form className={cx("form")} onSubmit={handleSubmit(onSubmitLogin)}>
       <h1>Login</h1>
-      <label htmlFor="name">Password</label>
+      <label htmlFor="email">Email</label>
       <input
         type="email"
         name="email"
@@ -30,6 +30,7 @@ function LoginForm({ toggleAuthen }) {
             /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
         })}
       />
+      <label htmlFor="password">Password</label>
       <input
         type="password"
         name="password"
@@ -40,7 +41,6 @@ function LoginForm({ toggleAuthen }) {
           minLength: 6,
         })}
       />
-      <label htmlFor="email">Email</label>
       {Object.keys(errors).length !== 0 && (
         <ul className="error-container">
           {errors.name?.type === "required" && <li>Name is required</li>}

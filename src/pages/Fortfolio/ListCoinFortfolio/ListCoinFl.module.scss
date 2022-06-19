@@ -10,18 +10,18 @@
         border-bottom: 1px solid rgb(58, 58, 58);
     }
 
-    .pricechangeRed {
-        color: rgb(238, 88, 88);
+    .changeRed {
+        color: var(--price-down)
     }
 
-    .pricechangeGreen {
-        color: rgb(69, 212, 69);
+    .changeGreen {
+        color: var(--price-up)
     }
        
 }
 .crypto-name {
     align-items: center;
-    justify-content: flex-start;
+    justify-content: center;
     display: flex;
     height: 70.5px;
     img {
@@ -59,4 +59,78 @@
 
 .hold {
     color: #fff;
+    position: relative;
+    .hide {
+        display: none;
+    }
+}
+
+.edit {
+    position: absolute;
+    top: 34%;
+    right: 25px;
+
+    .edit-icon {
+        color: #fcd535;
+        cursor: pointer;
+        &:hover {
+            font-size: 2.2rem;
+        }
+    }
+}
+
+.PNL .delete {
+    cursor: pointer;
+    color: #ccc;
+
+    .delete-icon:hover {
+        color: var(--primary-color);
+        font-size: 1.8rem;
+    } 
+}
+
+.box-delete {
+    background-color: rgba(109, 108, 108,0.9);
+    border-radius: 5px;
+    padding: 10px 6px;
+
+    .delete-title {
+        color: var(--primary-color);
+        margin-bottom: 5px;
+    }
+    button {
+        cursor: pointer;
+        border-radius: 3px;
+        padding: 5px 10px;
+        font-size: 1.4rem;
+        font-weight: 500;
+        background-image: var(--background-search);
+        border: none;
+
+        &:hover {
+            color: var(--primary-color);
+        }
+        
+    }
+}
+
+.box-quantity {
+    width: 120px;
+    padding: 2px 8px;
+    color: #fff;
+    position: absolute;
+    z-index: 10;
+    top: -12px;
+    right: 0;
+    background-color: rgb(71, 71, 71);
+    border-radius: 3px;
+    input { 
+        margin-top: 5px;
+        display: block;
+        width: 100%;
+        border-radius: 2px;
+        height: 25px;
+        border: none;
+        outline: none;  
+    }
 }
