@@ -1,9 +1,9 @@
 import { useForm } from "react-hook-form";
-import styles from "../LoginForm/LoginStyles.module.scss";
 import className from "classnames/bind";
 import { useRef, useState } from "react";
 // import RegisterApi from "../../../../api/RegisterApi";
 // import userApi from "../../../../api/RegisterApi";
+import styles from "../LoginForm/LoginStyles.module.scss";
 
 const cx = className.bind(styles);
 

@@ -1,18 +1,19 @@
+import {
+  // faArrowRightFromBracket,
+  // faExclamation,
+  faIdCardAlt,
+} from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import classNames from "classnames/bind";
-import styles from "./Header.module.scss";
 import { Link, NavLink } from "react-router-dom";
 import Button from "@mui/material/Button";
 import Dialog from "@mui/material/Dialog";
 import DialogActions from "@mui/material/DialogActions";
 import DialogContent from "@mui/material/DialogContent";
 import { useState } from "react";
+
 import Login from "../../../../features/Auth/components/Login";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  // faArrowRightFromBracket,
-  // faExclamation,
-  faIdCardAlt,
-} from "@fortawesome/free-solid-svg-icons";
+import styles from "./Header.module.scss";
 // import Tippy from "@tippyjs/react/headless";
 
 const cx = classNames.bind(styles);

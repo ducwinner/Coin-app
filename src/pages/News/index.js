@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
-import AxiosNews from "../../api/NewsApi";
 import classNames from "classnames/bind";
+
+import AxiosNews from "../../api/NewsApi";
 import styles from "./NewsStyles.module.scss";
 import NewItem from "./NewItem";
 import Button from "../../component/Button";

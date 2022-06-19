@@ -1,7 +1,8 @@
-import Coin from "./Coin";
 import { useEffect, useState } from "react";
-import ProductsApi from "../../api/ProductsApi";
 import classnames from "classnames/bind";
+
+import Coin from "./Coin";
+import ProductsApi from "../../api/ProductsApi";
 import styles from "./CoinDetailStyles.module.scss";
 import CoinLink from "./CoinLink";
 import Search from "./Search";

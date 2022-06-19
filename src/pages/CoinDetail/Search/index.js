@@ -1,8 +1,9 @@
-import styles from "./SearchStyles.module.scss";
+import { useState } from "react";
 import classNames from "classnames/bind";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowRightArrowLeft } from "@fortawesome/free-solid-svg-icons";
-import { useState } from "react";
+
+import styles from "./SearchStyles.module.scss";
 
 const cx = classNames.bind(styles);
 

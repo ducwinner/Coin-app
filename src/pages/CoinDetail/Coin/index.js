@@ -1,6 +1,7 @@
 import { faBell, faShare, faStar } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import classnames from "classnames/bind";
+
 import LineInput from "../../../component/LineInput";
 import styles from "./CoinStyles.module.scss";
 

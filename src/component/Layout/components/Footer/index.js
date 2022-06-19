@@ -1,7 +1,8 @@
-import styles from "./FooterStyles.module.scss";
 import classNames from "classnames/bind";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTriangleExclamation } from "@fortawesome/free-solid-svg-icons";
+
+import styles from "./FooterStyles.module.scss";
 
 const cx = classNames.bind(styles);
 

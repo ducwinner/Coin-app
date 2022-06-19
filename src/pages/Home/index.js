@@ -1,12 +1,13 @@
+import { useEffect, useRef, useState } from "react";
+import { faDownLong, faUpLong } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import classNames from "classnames/bind";
+
+import Button from "../../component/Button";
 import ProductsApi from "../../api/ProductsApi";
 import styles from "./HomeStyles.module.scss";
-import classNames from "classnames/bind";
-import { useEffect, useRef, useState } from "react";
 import CoinItem from "./CoinItem";
 import { LoadingCoins } from "../../component/loading";
-import Button from "../../component/Button";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faDownLong, faUpLong } from "@fortawesome/free-solid-svg-icons";
 
 const cx = classNames.bind(styles);
 let isDung = true;

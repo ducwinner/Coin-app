@@ -1,10 +1,11 @@
 import classnames from "classnames/bind";
-import styles from "./CoinLinkStyles.module.scss";
-// import { faSortDown } from "@fortawesome/free-solid-svg-icons";
-// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import TagCoin from "../../../component/TagCoin";
 import Tippy from "@tippyjs/react/headless"; // different import path!
 import "tippy.js/dist/tippy.css"; // optional
+// import { faSortDown } from "@fortawesome/free-solid-svg-icons";
+// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
+import styles from "./CoinLinkStyles.module.scss";
+import TagCoin from "../../../component/TagCoin";
 import Button2 from "../../../component/Button2";
 
 const cx = classnames.bind(styles);
