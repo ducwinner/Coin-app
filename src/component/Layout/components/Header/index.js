@@ -23,9 +23,7 @@ function Header() {
   const context = useContext(ThemeContext);
 
   if (localStorage.getItem("dataUser") !== null) {
-    const dataUser = JSON.parse(localStorage.getItem("dataUser"));
-    var { name, avatar_URl, total_nyc, current_Love, country, ...other } =
-      dataUser;
+    var dataUser = JSON.parse(localStorage.getItem("dataUser"));
   }
 
   const AlertInfo = () => {};
@@ -115,9 +113,9 @@ function Header() {
               className={cx("user-avata")}
               style={context.login ? { display: "flex" } : { display: "none" }}
             >
-              <img src={avatar_URl || ""} alt="avata" />
+              <img src={dataUser.avatar_URl || ""} alt="avata" />
               &nbsp;
-              <span>{name || ""}</span>
+              <span>{dataUser.name || ""}</span>
             </div>
           </Tippy>
         </div>

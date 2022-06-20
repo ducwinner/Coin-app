@@ -18,6 +18,7 @@ function PriceChange({
   volum24,
   markCap,
 }) {
+  console.log(volum24, markCap);
   return (
     <div className={cx("cointaner")}>
       <table className={cx("price-change-percent")}>

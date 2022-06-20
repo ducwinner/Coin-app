@@ -13,6 +13,9 @@ function Search({ symbol, price }) {
   const hanldeChange = (e) => {
     setTotal(e.target.value);
   };
+
+  const handleOnChange = () => {};
+
   const resultPrice = total * price;
   return (
     <>
@@ -38,6 +41,7 @@ function Search({ symbol, price }) {
               type="number"
               name="price2"
               placeholder="0"
+              onChange={handleOnChange}
             />
           </div>
         </div>
