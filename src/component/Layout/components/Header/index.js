@@ -1,6 +1,6 @@
 import {
-  // faArrowRightFromBracket,
-  // faExclamation,
+  faArrowRightFromBracket,
+  faExclamation,
   faIdCardAlt,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -10,24 +10,23 @@ import Button from "@mui/material/Button";
 import Dialog from "@mui/material/Dialog";
 import DialogActions from "@mui/material/DialogActions";
 import DialogContent from "@mui/material/DialogContent";
-import { useState } from "react";
+import Tippy from "@tippyjs/react/headless";
+import { useContext } from "react";
 
 import Login from "../../../../features/Auth/components/Login";
 import styles from "./Header.module.scss";
-// import Tippy from "@tippyjs/react/headless";
+import { ThemeContext } from "../../../../ThemeProvider";
 
 const cx = classNames.bind(styles);
 
 function Header() {
-  const [open, setOpen] = useState(false);
+  const context = useContext(ThemeContext);
 
-  const handleClickOpen = () => {
-    setOpen(true);
-  };
-
-  const handleClose = () => {
-    setOpen(false);
-  };
+  if (localStorage.getItem("dataUser") !== null) {
+    const dataUser = JSON.parse(localStorage.getItem("dataUser"));
+    var nameUser = dataUser.name;
+    var avatarUrl = dataUser.avatar_URl;
+  }
 
   return (
     <header className={cx("wrapper")}>
@@ -88,10 +87,14 @@ function Header() {
             <FontAwesomeIcon icon={faIdCardAlt} color="#fcd535" /> &nbsp;
             Portfolio
           </Link>
-          <div className={cx("login")} onClick={handleClickOpen}>
+          <div
+            className={cx("login")}
+            style={context.login ? { display: "none" } : { display: "block" }}
+            onClick={context.handleClickOpen}
+          >
             Sign In
           </div>
-          {/* <Tippy
+          <Tippy
             interactive
             render={(attrs) => (
               <div className={cx("user-notify")} tabIndex="-1" {...attrs}>
@@ -99,26 +102,32 @@ function Header() {
                   Price Alert &nbsp; <FontAwesomeIcon icon={faExclamation} />{" "}
                 </div>
                 <div>Infomation</div>
-                <div>
+                <div onClick={context.handleLogout}>
                   Log out &nbsp;{" "}
                   <FontAwesomeIcon icon={faArrowRightFromBracket} />{" "}
                 </div>
               </div>
             )}
           >
-            <div className={cx("user-avata")}>
-              <img
-                src="https://image.vtc.vn/upload/2021/12/26/bitcoin-06480965.jpg"
-                alt="avata"
-              />
+            <div
+              className={cx("user-avata")}
+              style={context.login ? { display: "flex" } : { display: "none" }}
+            >
+              <img src={avatarUrl || ""} alt="avata" />
+              &nbsp;
+              <span>{nameUser || ""}</span>
             </div>
-          </Tippy> */}
+          </Tippy>
         </div>
       </div>
 
-      <Dialog disableEscapeKeyDown open={open} onClose={handleClose}>
+      <Dialog
+        disableEscapeKeyDown
+        open={context.openLogin}
+        onClose={context.handleClose}
+      >
         <DialogContent sx={{ backgroundColor: "#272727" }}>
-          <Login />
+          <Login closeLogin={context.handleClose} />
         </DialogContent>
         <DialogActions sx={{ backgroundColor: "#272727" }}>
           <Button
@@ -129,7 +138,7 @@ function Header() {
                 backgroundColor: "#82a0bf",
               },
             }}
-            onClick={handleClose}
+            onClick={context.handleClose}
           >
             Cancel
           </Button>

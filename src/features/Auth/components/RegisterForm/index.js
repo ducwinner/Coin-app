@@ -19,11 +19,7 @@ function RegisterForm({ toggleAuthen }) {
     getValues,
   } = useForm();
   const onSubmit = (data) => {
-    console.log("onSubmit");
-    // const keysUser = Object.keys(data);
-    // keysUser.map((e) => {
-    //   localStorage.setItem(e, data[e]);
-    // });
+    console.log(data);
   };
 
   return (

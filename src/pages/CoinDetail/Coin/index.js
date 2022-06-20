@@ -21,7 +21,6 @@ function Coin({
   maxSupply,
   totalSupply,
 }) {
-  console.log(maxSupply);
   return (
     <div className={cx("container")}>
       <div className={cx("rank-coin")}>Rank#{rank}</div>
@@ -40,7 +39,11 @@ function Coin({
         &nbsp;
         <FontAwesomeIcon className={cx("icon")} icon={faBell} />
         &nbsp;
-        <FontAwesomeIcon className={cx("icon")} icon={faStar} />
+        <FontAwesomeIcon
+          className={cx("icon")}
+          icon={faStar}
+          // onClick={handle}
+        />
         &nbsp;&nbsp;
         <span>1.083.005 người thích điều nay</span>
       </div>

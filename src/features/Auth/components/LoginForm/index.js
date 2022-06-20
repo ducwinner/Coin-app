@@ -1,7 +1,10 @@
 import { useForm } from "react-hook-form";
 import className from "classnames/bind";
+import { useContext } from "react";
 
+import { usersData } from "../../../../dataSource/userData";
 import styles from "./LoginStyles.module.scss";
+import { ThemeContext } from "../../../../ThemeProvider";
 
 const cx = className.bind(styles);
 
@@ -11,8 +14,21 @@ function LoginForm({ toggleAuthen }) {
     handleSubmit,
     formState: { errors },
   } = useForm();
+
+  const context = useContext(ThemeContext);
   const onSubmitLogin = (data) => {
-    console.log(data);
+    const dataLogin = JSON.parse(JSON.stringify(data));
+    const usersMatch = usersData.filter(
+      (users) =>
+        users.email === dataLogin?.email &&
+        users.password === dataLogin?.password
+    );
+    if (usersMatch.length === 1) {
+      localStorage.setItem("stateLogin", "true");
+      const { password, ...dataUser } = usersMatch[0];
+      context.handleClose();
+      context.handleLogin(dataUser);
+    }
   };
 
   return (

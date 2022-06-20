@@ -1,0 +1,54 @@
+
+@keyframes fadeIn {
+    0% {
+        right: -5vw;
+        opacity: 0;
+    }
+
+    40% {
+        right: 10vw;
+        opacity: 1;
+    }
+
+    100% {
+        display: none;
+    }
+}
+
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+}
+.container-toast-message {
+    position: absolute;
+    top: 20vh;
+    right: 10vw;
+    display: flex;
+    height: 70px;
+    border-radius: 5px;
+    background-color: rgb(3, 149, 168);
+    align-items: center;
+    transition: 1;
+    .inner {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        .toast-icon {
+            font-size: 3rem;
+            color: var(--primary-color);
+            padding: 10px;
+        }
+
+        .toast-title {
+            padding: 10px;
+            font-size: 1.4  rem;
+            color: var(--primary-color);
+            font-weight: 500;
+        }
+    }
+}

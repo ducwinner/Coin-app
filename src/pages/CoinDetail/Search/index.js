@@ -13,7 +13,6 @@ function Search({ symbol, price }) {
   const hanldeChange = (e) => {
     setTotal(e.target.value);
   };
-
   const resultPrice = total * price;
   return (
     <>
@@ -33,9 +32,9 @@ function Search({ symbol, price }) {
           <FontAwesomeIcon icon={faArrowRightArrowLeft} />
           &nbsp; &nbsp;
           <div className={cx("price")}>
-            <span for="price2">USD</span>
+            <span>USD</span>
             <input
-              value={resultPrice?.toLocaleString()}
+              value={resultPrice.toFixed(0) || 0}
               type="number"
               name="price2"
               placeholder="0"

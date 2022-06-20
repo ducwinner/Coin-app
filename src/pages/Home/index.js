@@ -34,7 +34,6 @@ function Home() {
   useEffect(() => {
     setTimeout(() => {
       const fetchCoins = async () => {
-        console.log(perPage);
         const params = {
           page: 1,
           per_page: perPage,

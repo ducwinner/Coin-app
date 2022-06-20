@@ -91,10 +91,10 @@
     font-weight: 500;
     width: 300px;
     div {
-        width: 90px;
+        width: 130px;
         text-align: center;
         cursor: pointer;
-        &:hover {
+        &:hover:not(.user-notify) {
             color: var(--primary-color);
         }
     }
@@ -107,7 +107,11 @@
         }
     }
     .user-avata {
+        display: flex;
+        justify-content: center;
+        align-items: center;
         overflow: hidden;
+        color: var(--primary-color);
         img{
             border: 1px solid rgb(255, 252, 59);
             width: 30px;

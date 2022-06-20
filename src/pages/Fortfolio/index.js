@@ -3,7 +3,7 @@ import {
   faEye,
   faFaceFrown,
   faHeart,
-  faPercent,
+  // faPercent,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Dialog from "@mui/material/Dialog";
@@ -11,20 +11,30 @@ import DialogActions from "@mui/material/DialogActions";
 import DialogContent from "@mui/material/DialogContent";
 import classNames from "classnames/bind";
 import { useEffect, useState } from "react";
+import { useContext } from "react";
 
 import Button2 from "../../component/Button2";
 import styles from "./FortfolioStyles.module.scss";
 import ListCoinFortfolio from "./ListCoinFortfolio";
 import ProductsApi from "../../api/ProductsApi";
-import { dataUser } from "../../dataSource/Fortfolio";
+import { dataUsers } from "../../dataSource/Fortfolio";
+import { ThemeContext } from "../../ThemeProvider";
 
 const cx = classNames.bind(styles);
 
 function Fortfolio() {
+  const context = useContext(ThemeContext);
+  let fortFoLioUser = [];
+  if (context.login) {
+    fortFoLioUser = dataUsers.filter(
+      (item) => item.userId === context.dataUser.id
+    )[0].data;
+  }
+
   const [openSearch, setOpenSearch] = useState(false);
   const [searchCoin, setSearchCoin] = useState("");
   const [coins, setCoins] = useState([]);
-  const [dataCoin, setDataCoin] = useState(dataUser);
+  const [dataCoin, setDataCoin] = useState(fortFoLioUser);
   const [none, setNone] = useState(false);
   const [coinsFortfolio, setCoinFortfolio] = useState(() => ({
     list: [],
@@ -39,6 +49,7 @@ function Fortfolio() {
     };
     fetchCoin();
   }, []);
+
   useEffect(() => {
     // Tạo mảng chứa tên coin
     var arrNameCoin = dataCoin.reduce(function (total, item) {
@@ -46,7 +57,7 @@ function Fortfolio() {
     }, []);
     // get data Coins của fortfolio
     const listFilter = coins.filter((item) => arrNameCoin.includes(item.id));
-    // tính Tổng số dư
+    // total số dư
     var totalBalance = listFilter.reduce((total, item) => {
       var quantity = dataCoin.filter((e) => {
         return e.idcoin === item.id;
@@ -87,28 +98,33 @@ function Fortfolio() {
       listCoinRender.push(listCoinFilter[i]);
     }
   }
+
   const hanldeSearch = (e) => {
     setSearchCoin(e.target.value);
   };
 
   const handleAddCoin = (id, current_price) => {
-    let itemMatch = dataCoin.filter((item) => {
-      return item.idcoin === id;
-    }).length;
-    if (itemMatch === 0) {
-      setDataCoin((prev) => {
-        return [
-          ...prev,
-          {
-            idcoin: id,
-            quantity: 0,
-            priceInput: current_price,
-          },
-        ];
-      });
-      alert("thêm thành công rồi nhé");
+    if (context.login) {
+      let itemMatch = dataCoin.filter((item) => {
+        return item.idcoin === id;
+      }).length;
+      if (itemMatch === 0) {
+        setDataCoin((prev) => {
+          return [
+            ...prev,
+            {
+              idcoin: id,
+              quantity: 0,
+              priceInput: current_price,
+            },
+          ];
+        });
+        alert("thêm thành công rồi nhé");
+      } else {
+        alert("Đã có rồi bạn eeiiiiiiiiiii!");
+      }
     } else {
-      alert("Đã có rồi bạn eeiiiiiiiiiii!");
+      alert("Bro cần đăng ký tài khoản đã");
     }
   };
 
@@ -139,16 +155,12 @@ function Fortfolio() {
   };
 
   const handleDelete = (id) => {
-    console.log(id);
     const newDatacoin = [...dataCoin];
-    console.log(newDatacoin);
     dataCoin.forEach((item, index) => {
       if (item.idcoin === id) {
         newDatacoin.splice(index, 1);
       }
     });
-
-    console.log(newDatacoin);
     setDataCoin(newDatacoin);
   };
   return (
@@ -164,9 +176,6 @@ function Fortfolio() {
           <div className={cx("header-right")}>
             <div className={cx("icon")} onClick={handleNone}>
               <FontAwesomeIcon icon={faEye} size="1x" />
-            </div>{" "}
-            <div className={cx("icon")}>
-              <FontAwesomeIcon icon={faPercent} size="1x" />
             </div>
             <Dialog
               disableEscapeKeyDown
