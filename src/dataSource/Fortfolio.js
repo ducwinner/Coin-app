@@ -24,17 +24,12 @@ export const dataUsers = [
     data: [
       {
         idcoin: "bitcoin",
-        quantity: 10,
+        quantity: 3.4,
         priceInput: 12000,
       },
       {
-        idcoin: "ethereum",
-        quantity: 20,
-        priceInput: 1000,
-      },
-      {
         idcoin: "dogecoin",
-        quantity: 10000,
+        quantity: 100000,
         priceInput: 0.8,
       },
     ],

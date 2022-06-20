@@ -26,11 +26,11 @@ function LoginForm({ toggleAuthen }) {
     if (usersMatch.length === 1) {
       localStorage.setItem("stateLogin", "true");
       const { password, ...dataUser } = usersMatch[0];
+      console.log(dataUser);
       context.handleClose();
       context.handleLogin(dataUser);
     }
   };
-
   return (
     <form className={cx("form")} onSubmit={handleSubmit(onSubmitLogin)}>
       <h1>Login</h1>

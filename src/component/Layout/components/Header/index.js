@@ -22,8 +22,9 @@ const cx = classNames.bind(styles);
 function Header() {
   const context = useContext(ThemeContext);
 
+  let dataUser = {};
   if (localStorage.getItem("dataUser") !== null) {
-    var dataUser = JSON.parse(localStorage.getItem("dataUser"));
+    dataUser = JSON.parse(localStorage.getItem("dataUser"));
   }
 
   const AlertInfo = () => {};
@@ -113,9 +114,9 @@ function Header() {
               className={cx("user-avata")}
               style={context.login ? { display: "flex" } : { display: "none" }}
             >
-              <img src={dataUser.avatar_URl || ""} alt="avata" />
+              <img src={dataUser.avatar_URl} alt="avata" />
               &nbsp;
-              <span>{dataUser.name || ""}</span>
+              <span>{dataUser.name}</span>
             </div>
           </Tippy>
         </div>

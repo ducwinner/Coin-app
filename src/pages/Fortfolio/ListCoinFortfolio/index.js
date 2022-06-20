@@ -131,7 +131,7 @@ function ListCoinFortfolio({
             render={(attrs) => (
               <div className={cx("box-delete")} tabIndex="-1" {...attrs}>
                 <div className={cx("delete-title")}>
-                  U want to cut U'losses &nbsp;
+                  "U want to cut U'losses"
                   <FontAwesomeIcon icon={faFaceGrinSquintTears} />
                 </div>
                 <button onClick={() => handleDeleteCoin(id)}>Okay</button>

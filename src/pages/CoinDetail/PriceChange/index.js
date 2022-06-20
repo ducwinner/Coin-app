@@ -18,7 +18,12 @@ function PriceChange({
   volum24,
   markCap,
 }) {
-  console.log(volum24, markCap);
+  var PercentV = 0;
+  // console.log(volum24, markCap);
+  if (volum24 && markCap) {
+    PercentV = volum24 / markCap;
+  }
+
   return (
     <div className={cx("cointaner")}>
       <table className={cx("price-change-percent")}>
@@ -73,7 +78,7 @@ function PriceChange({
         </li>
         <li className={cx("price-info-item")}>
           <div className={cx("title")}>Volume / MKC</div>
-          <div className={cx("price")}>{volum24 / markCap}</div>
+          <div className={cx("price")}>{PercentV}</div>
         </li>
       </ul>
     </div>
