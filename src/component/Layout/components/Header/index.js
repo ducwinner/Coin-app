@@ -24,9 +24,11 @@ function Header() {
 
   if (localStorage.getItem("dataUser") !== null) {
     const dataUser = JSON.parse(localStorage.getItem("dataUser"));
-    var nameUser = dataUser.name;
-    var avatarUrl = dataUser.avatar_URl;
+    var { name, avatar_URl, total_nyc, current_Love, country, ...other } =
+      dataUser;
   }
+
+  const AlertInfo = () => {};
 
   return (
     <header className={cx("wrapper")}>
@@ -101,7 +103,7 @@ function Header() {
                 <div>
                   Price Alert &nbsp; <FontAwesomeIcon icon={faExclamation} />{" "}
                 </div>
-                <div>Infomation</div>
+                <div onClick={AlertInfo}>Infomation</div>
                 <div onClick={context.handleLogout}>
                   Log out &nbsp;{" "}
                   <FontAwesomeIcon icon={faArrowRightFromBracket} />{" "}
@@ -113,9 +115,9 @@ function Header() {
               className={cx("user-avata")}
               style={context.login ? { display: "flex" } : { display: "none" }}
             >
-              <img src={avatarUrl || ""} alt="avata" />
+              <img src={avatar_URl || ""} alt="avata" />
               &nbsp;
-              <span>{nameUser || ""}</span>
+              <span>{name || ""}</span>
             </div>
           </Tippy>
         </div>
