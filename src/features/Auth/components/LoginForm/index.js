@@ -34,7 +34,7 @@ function LoginForm({ toggleAuthen }) {
   return (
     <form className={cx("form")} onSubmit={handleSubmit(onSubmitLogin)}>
       <h1>Login</h1>
-      <label htmlFor="email">Email</label>
+      <label htmlFor="email">Email ( duclogin@gmail) </label>
       <input
         type="email"
         name="email"
@@ -46,7 +46,7 @@ function LoginForm({ toggleAuthen }) {
             /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
         })}
       />
-      <label htmlFor="password">Password</label>
+      <label htmlFor="password">Password ( 88888888 )</label>
       <input
         type="password"
         name="password"
