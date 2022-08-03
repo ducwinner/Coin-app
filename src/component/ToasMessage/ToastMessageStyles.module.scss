@@ -1,18 +1,15 @@
 
 @keyframes fadeIn {
-    0% {
+    from {
         right: -5vw;
         opacity: 0;
     }
 
-    40% {
+    to {
         right: 10vw;
         opacity: 1;
     }
 
-    100% {
-        display: none;
-    }
 }
 
 @keyframes fadeOut {
@@ -32,6 +29,7 @@
     border-radius: 5px;
     background-color: rgb(3, 149, 168);
     align-items: center;
+    animation: fadeIn ease-in 0.8s forwards, fadeOut linear 1s 3s forwards;
     transition: 1;
     .inner {
         display: flex;

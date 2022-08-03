@@ -19,10 +19,13 @@ import ListCoinFortfolio from "./ListCoinFortfolio";
 import ProductsApi from "../../api/ProductsApi";
 import { dataUsers } from "../../dataSource/Fortfolio";
 import { ThemeContext } from "../../ThemeProvider";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const cx = classNames.bind(styles);
 
 function Fortfolio() {
+  const notify = (text) => toast(text);
   const context = useContext(ThemeContext);
   let fortFoLioUser = [];
   if (context.login) {
@@ -119,12 +122,12 @@ function Fortfolio() {
             },
           ];
         });
-        alert("thêm thành công rồi nhé");
+        notify();
       } else {
-        alert("Đã có rồi bạn eeiiiiiiiiiii!");
+        notify();
       }
     } else {
-      alert("Bro cần đăng ký tài khoản đã");
+      notify();
     }
   };
 
@@ -165,6 +168,7 @@ function Fortfolio() {
   };
   return (
     <div className={cx("container")}>
+      <ToastContainer autoClose={8000} />
       <div className={cx("inner")}>
         <div className={cx("header-porftfolio")}>
           <div className={cx("header-left")}>

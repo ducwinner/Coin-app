@@ -28,6 +28,7 @@ function ThemeProvider({ children }) {
   const handleClose = () => {
     setOpenLogin(false);
   };
+
   const Data = {
     handleClickOpen,
     handleClose,

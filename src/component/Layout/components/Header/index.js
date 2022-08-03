@@ -1,8 +1,11 @@
 import {
   faArrowRightFromBracket,
+  faBars,
   faExclamation,
   faIdCardAlt,
+  faUser,
 } from "@fortawesome/free-solid-svg-icons";
+import * as React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import classNames from "classnames/bind";
 import { Link, NavLink } from "react-router-dom";
@@ -10,14 +13,21 @@ import Button from "@mui/material/Button";
 import Dialog from "@mui/material/Dialog";
 import DialogActions from "@mui/material/DialogActions";
 import DialogContent from "@mui/material/DialogContent";
+import DialogContentText from "@mui/material/DialogContentText";
+import DialogTitle from "@mui/material/DialogTitle";
+import Slide from "@mui/material/Slide";
 import Tippy from "@tippyjs/react/headless";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 
 import Login from "../../../../features/Auth/components/Login";
 import styles from "./Header.module.scss";
 import { ThemeContext } from "../../../../ThemeProvider";
 
 const cx = classNames.bind(styles);
+
+const Transition = React.forwardRef(function Transition(props, ref) {
+  return <Slide direction="up" ref={ref} {...props} />;
+});
 
 function Header() {
   const context = useContext(ThemeContext);
@@ -27,7 +37,15 @@ function Header() {
     dataUser = JSON.parse(localStorage.getItem("dataUser"));
   }
 
-  const AlertInfo = () => {};
+  const [open, setOpen] = useState(false);
+
+  const handleClickOpen = () => {
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
 
   return (
     <header className={cx("wrapper")}>
@@ -60,12 +78,44 @@ function Header() {
         </div>
       </div>
       <div className={cx("inner-2")}>
+        <div className={cx("menu-tablet")} onClick={handleClickOpen}>
+          <FontAwesomeIcon icon={faBars} />
+        </div>
         <Link to="/" className={cx("logo")}>
           <img
             src="https://i.ex-cdn.com/nhadautu.vn/files/ctv2/2018/04/11/bitcoin-1516.jpg"
             alt="logo"
           />
         </Link>
+
+        <Dialog
+          className={cx("ducduc")}
+          open={open}
+          TransitionComponent={Transition}
+          keepMounted
+          onClose={handleClose}
+          aria-describedby="alert-dialog-slide-description"
+        >
+          <DialogTitle>
+            <Link to="/" className={cx("logo")}>
+              <img
+                src="https://i.ex-cdn.com/nhadautu.vn/files/ctv2/2018/04/11/bitcoin-1516.jpg"
+                alt="logo"
+              />
+            </Link>
+          </DialogTitle>
+          <DialogContent>
+            <DialogContentText id="alert-dialog-slide-description">
+              Let Google help apps determine location. This means sending
+              anonymous location data to Google, even when no apps are running.
+            </DialogContentText>
+          </DialogContent>
+          <DialogActions>
+            <Button onClick={handleClose}>Disagree</Button>
+            <Button onClick={handleClose}>Agree</Button>
+          </DialogActions>
+        </Dialog>
+
         <div className={cx("header-link-1")}>
           <NavLink to="/" className={cx("link-item")}>
             Cryptocurrencies
@@ -86,14 +136,15 @@ function Header() {
         <div className={cx("header-link-2")}>
           <Link to="/fortfolio" className={cx("fortfolio")}>
             <FontAwesomeIcon icon={faIdCardAlt} color="#fcd535" /> &nbsp;
-            Portfolio
+            <span>Portfolio</span>
           </Link>
           <div
             className={cx("login")}
             style={context.login ? { display: "none" } : { display: "block" }}
             onClick={context.handleClickOpen}
           >
-            Sign In
+            <FontAwesomeIcon icon={faUser} />
+            <span>Sign In</span>
           </div>
           <Tippy
             interactive
@@ -102,7 +153,7 @@ function Header() {
                 <div>
                   Price Alert &nbsp; <FontAwesomeIcon icon={faExclamation} />{" "}
                 </div>
-                <div onClick={AlertInfo}>Infomation</div>
+                <div>Infomation</div>
                 <div onClick={context.handleLogout}>
                   Log out &nbsp;{" "}
                   <FontAwesomeIcon icon={faArrowRightFromBracket} />{" "}

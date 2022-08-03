@@ -76,7 +76,7 @@ function Home() {
 
   return (
     <div className={cx("container")}>
-      <img
+      {/* <img
         className={cx("header-img-left")}
         src="https://public.bnbstatic.com/20191112/91535829-e4e2-42b3-96d2-263240f94884"
         alt="img"
@@ -86,7 +86,7 @@ function Home() {
         className={cx("header-img-right")}
         src="https://public.bnbstatic.com/image/cms/blog/20211019/04026d70-9886-492d-9828-52fbbfd5ea4a.png"
         alt="img"
-      />
+      /> */}
       <div className={cx("search")}>
         <div className={cx("search-top")}>
           <div className={cx("search-text")}>Search currency</div>

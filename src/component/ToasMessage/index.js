@@ -8,7 +8,7 @@ function ToastMessage({ icon, colorBorder, text }) {
   return (
     <div
       className={cx("container-toast-message")}
-      style={{ border: `2px solid ${colorBorder}` }}
+      style={{ border: `1px solid ${colorBorder}` }}
     >
       <div className={cx("inner")}>
         <FontAwesomeIcon icon={icon} className={cx("toast-icon")} />

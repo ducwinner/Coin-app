@@ -11,6 +11,7 @@ import { Link } from "react-router-dom";
 import { useForm } from "react-hook-form";
 
 import styles from "./ListCoinFl.module.scss";
+import { memo } from "react";
 
 const cx = classNames.bind(styles);
 
@@ -151,4 +152,4 @@ function ListCoinFortfolio({
   );
 }
 
-export default ListCoinFortfolio;
+export default memo(ListCoinFortfolio);

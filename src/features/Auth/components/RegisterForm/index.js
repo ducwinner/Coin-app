@@ -33,7 +33,7 @@ function RegisterForm({ toggleAuthen }) {
         placeholder="Your Name"
         {...register("name", { required: true })}
       />
-      <label htmlFor="email">Email</label>
+      <label htmlFor="email">Email ( duclogin@gmail.com )</label>
       <input
         type="email"
         name="email"
@@ -45,7 +45,7 @@ function RegisterForm({ toggleAuthen }) {
             /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
         })}
       />
-      <label htmlFor="name">Password</label>
+      <label htmlFor="name">Password ( 88888888 )</label>
       <input
         ref={passwordRef}
         type="password"

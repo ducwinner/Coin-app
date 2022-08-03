@@ -20,11 +20,12 @@
 }
 
 .search {
-    width: 1300px;
+    overflow: auto;
     align-items: center;
 }
 
 .search-top {
+    width: 1300px;
     margin: 50px 0 40px 0;
     width: 100%;
     align-items: center;
@@ -71,7 +72,7 @@
 }
 
 .list-coin {
-    width: 100%;
+    width: 1300px;
     border-collapse: collapse ;
     .header {
         height: 50px;
@@ -86,26 +87,28 @@
 
         .row1 {
             color: red;
-            width: 64px;
+            width: 7%;
         }
         .row2 {
-            width: 264px;
+            width: 20%;
         }
         .row3 {
-            width: 86px;
+            width: 5%;
         }
         .row4 {
-            width: 187px;
+            width: 25%;
             cursor: pointer;
             &:hover {
                 color: var(--primary-color);
             }
         }
         .row5 {
-            width: 247px;
+            width: 25%;
         }
         .row6 {
-            width: 239px;
+            width: 18%;
         }
     }
 }
+
+

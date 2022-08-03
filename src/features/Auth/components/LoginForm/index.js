@@ -34,7 +34,7 @@ function LoginForm({ toggleAuthen }) {
   return (
     <form className={cx("form")} onSubmit={handleSubmit(onSubmitLogin)}>
       <h1>Login</h1>
-      <label htmlFor="email">Email ( duclogin@gmail) </label>
+      <label htmlFor="email">Email ( duclogin@gmail.com ) </label>
       <input
         type="email"
         name="email"

@@ -3,6 +3,7 @@ import classNames from "classnames/bind";
 
 import AxiosNews from "../../api/NewsApi";
 import styles from "./NewsStyles.module.scss";
+import "./NewsResponsive.module.scss";
 import NewItem from "./NewItem";
 import Button from "../../component/Button";
 import { LoadingCoins, LoadingNew } from "../../component/loading";
